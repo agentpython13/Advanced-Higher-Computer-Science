@@ -39,12 +39,30 @@ def init_size(deck):
     suits = ['hearts', 'clubs', 'diamonds','spades']
     for card in deck:
         card.size = card.value + (suits.index(card.suit)+1)*0.1
-        print(card.size)
 
 def sort_cards(deck):
-    position = 2
-    current = deck[position-1]
-    while current.size < deck[position]
+    swaps = 0
+
+    current = 1
+
+    while current < len(deck):
+        position = current
+        if deck[position].size < deck[position-1].size and position > 0:
+            while deck[position].size < deck[position-1].size and position > 0:
+                deck[position], deck[position-1] = deck[position-1], deck[position]
+                position -= 1
+
+                display_cards(deck)
+                print()
+
+                swaps += 1
+        else:
+            print("No swap was made.")
+            print()
+
+        current += 1
+
+    return deck
 
     
 
@@ -52,8 +70,10 @@ def sort_cards(deck):
 # main program
 cards = [card() for index in range(10)]
 allcards = [card() for index in range(52)]
+
 allcards = build_deck()
 cards = draw_cards(allcards)
+
+init_size(cards)
+sort_cards(cards)
 display_cards(cards)
-# cards = sort_cards()
-# display_cards(cards)
