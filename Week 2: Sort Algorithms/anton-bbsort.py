@@ -61,7 +61,8 @@ def sort_cards(deck):
             print()
 
         current += 1
-
+    
+    print(f"{swaps} total swap(s) were made.")
     return deck
 
     
